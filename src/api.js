@@ -2,15 +2,19 @@ const API_KEY = "3ac9cf3432fa24a5d8a37ee5283869a2";
 const API_BASE = `https://api.themoviedb.org/3`;
 
 
-const basicFetch = async (endpoint)=>{
-    const req = await fetch(`${API_BASE}${endpoint}`);
-    const json = await req.json();
-    return json;
+const basicFetch = async (endpoint) => {
+    try {
+        const req = await fetch(`${API_BASE}${endpoint}`);
+        const json = await req.json();
+        return json;
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 
 export default {
-    getHomeList: async ()=>{
+    getHomeList: async () => {
         return [
             {
                 slug: 'originals',
@@ -30,7 +34,7 @@ export default {
             {
                 slug: 'action',
                 title: 'Ação',
-                items: await basicFetch()
+                items: await basicFetch(`/discover/movie?api_key=${API_KEY}&with_genres=28&language=pt-BR`)
             },
             {
                 slug: 'comedy',
@@ -40,18 +44,19 @@ export default {
             {
                 slug: 'horror',
                 title: 'Terror',
-                items: await basicFetch()
-            },
-            {
-                slug: 'romance',
-                title: 'Romance',
-                items: await basicFetch(`/trending/all/day?api_key=${API_KEY}&with_genres=10749&language=pt-BR`)
+                items: await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=27&language=pt-BR`)
             },
             {
                 slug: 'documentary',
                 title: 'Documentario',
                 items: await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=99&language=pt-BR`)
             },
+            {
+                slug: 'romance',
+                title: 'Romance',
+                items: await basicFetch(`/trending/all/day?api_key=${API_KEY}&with_genres=10749&language=pt-BR`)
+            },
+
         ]
     }
 }
