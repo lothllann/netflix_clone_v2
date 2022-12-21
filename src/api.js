@@ -13,6 +13,7 @@ const basicFetch = async (endpoint) => {
 }
 
 
+
 export default {
     getHomeList: async () => {
         return [
@@ -57,7 +58,32 @@ export default {
                 items: await basicFetch(`/trending/all/day?api_key=${API_KEY}&with_genres=10749&language=pt-BR`)
             },
 
-        ]
+        ];
+    },
+    getMovieInfo: async (movieId, type) => {
+        let info = {};
+
+        if (movieId) {
+            switch (type) {
+                case 'movie':
+                    info = await basicFetch(`/movie/${movieId}?api_key=${API_KEY}&language=pt-BR`)
+                    break;
+                case 'tv':
+                    info = await basicFetch(`/tv/${movieId}?api_key=${API_KEY}&language=pt-BR`)
+
+                    break;
+
+                default:
+                    info = null
+                    break;
+            }
+        }
+
+        return info;
     }
 }
+
+
+
+
 
