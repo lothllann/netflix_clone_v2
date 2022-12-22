@@ -5,17 +5,20 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 const RowMovie = ({ title, items }) => {
     const imageHost = "https://image.tmdb.org/t/p/";
-    const [scrollX, setScrollX] = React.useState(-400)
+    const [scrollX, setScrollX] = React.useState(0)
 
     const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2.5);
         if(x > 0) x = 0; 
-        setScrollX(x)
+        setScrollX(x);
     }
     const handleRightArrow = () => {
         let x = scrollX - Math.round(window.innerWidth / 2.5);
-        let listSize = items.results.length * 150
-        setScrollX(x)
+        let listSize = items.results.length * 150;
+        if((window.innerWidth - listSize) > x){
+            x = (window.innerWidth - listSize) - 60;
+        }
+        setScrollX(x);
     }
 
     return (

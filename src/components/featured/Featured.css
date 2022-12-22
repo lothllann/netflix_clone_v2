@@ -44,7 +44,7 @@
     margin-right: 15px;
 }
 
-.featured--description{
+.featured--description {
     margin-top: 15px;
     font-size: 20px;
     color: #999;
@@ -62,20 +62,21 @@
     font-weight: bold;
     padding: 15px 25px;
     border-radius: 5px;
+    border: none;
     text-decoration: none;
-    margin-right: 10px;
+    margin-right: 20px;
     transition: all ease 0.2s;
     cursor: pointer;
 }
 
-.featured--watchButton{
+.featured--watchButton {
     background-color: #fff;
     color: #000;
 }
 
-.featured--myListButton{
+.featured--myListButton {
     background-color: #333;
-     color: #fff;
+    color: #fff;
 }
 
 .featured--watchButton:hover,
@@ -85,6 +86,35 @@
 
 .featured--genres {
     margin-top: 15px;
-    font-size: 18px  ;
+    font-size: 18px;
     color: #999;
+}
+
+
+@media (max-width: 760px) {
+    .featured {
+        height: 90vh;
+    }
+
+    .featured--name {
+        font-size: 40px;
+    }
+
+    .featured--info {
+        font-size: 16px;
+    }
+
+    .featured--description {
+        font-size: 14px;
+        max-width: 100%;
+        margin-right: 30px;
+    }
+
+    .featured--myListButton,
+    .featured--watchButton {
+        font-size: 16px;
+    }
+    .featured--genres{
+        font-size: 14px
+    }
 }
