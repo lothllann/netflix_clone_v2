@@ -65,6 +65,7 @@
     text-decoration: none;
     margin-right: 10px;
     transition: all ease 0.2s;
+    cursor: pointer;
 }
 
 .featured--watchButton{

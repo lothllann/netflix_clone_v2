@@ -6,12 +6,12 @@ const Header = ({blackHeader}) => {
    <header className={blackHeader ? 'black' : ''}>
     <div className='header--logo'>
         <a href="/">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png" alt="Netflix" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
         </a>
     </div>
-    <div>
+    <div className='header--user'>
         <a href="">
-            <img src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" alt="user" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPsVAeFlYeYOEUzb3TV1ML91_LPkkFML5lRQcMdr9nQu2CqO-WzT-RLmkM5_cOKvkaBkI&usqp=CAU" alt="user" />
         </a>
     </div>
    </header>
