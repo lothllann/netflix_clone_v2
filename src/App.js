@@ -4,6 +4,7 @@ import RowMovie from './components/lists/RowMovie.js';
 import './App.css'
 import Featured from './components/featured/Featured.js';
 import Header from './components/header/Header.js';
+import Footer from './components/footer/Footer.js';
 
 
 const App = () => {
@@ -55,9 +56,7 @@ const App = () => {
 
       <Header blackHeader={blackHeader}/>
 
-      {featuredData &&
-        <Featured item={featuredData} />
-      }
+      {featuredData && <Featured item={featuredData} />}
 
       <section className='lists'>
         {movieList.map((item, key) => (
@@ -65,6 +64,8 @@ const App = () => {
         ))}
       </section>
 
+
+     <Footer />     
     </div>
 
   )
