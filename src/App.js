@@ -3,11 +3,13 @@ import api from './api.js';
 import RowMovie from './components/lists/RowMovie.js';
 import './App.css'
 import Featured from './components/featured/Featured.js';
+import Header from './components/header/Header.js';
 
 
 const App = () => {
   const [movieList, setMovieList] = React.useState([]);
   const [featuredData, setFeaturedData] = React.useState(null);
+  const [blackHeader, setBlackHeader] = React.useState(false);
 
   React.useEffect(() => {
     const loadAll = async () => {
@@ -17,7 +19,7 @@ const App = () => {
       setMovieList(list);
 
       //pegando o FEATURED
-      //teste denovo
+
       let originals = list.filter(i => i.slug === 'originals');
       let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
       let chosen = originals[0].items.results[randomChosen];
@@ -30,8 +32,28 @@ const App = () => {
     loadAll();
   }, []);
 
+
+  React.useEffect(() => {
+    const scrollListener = () =>{
+      if (window.scrollY > 50) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    return ()=>{
+    window.removeEventListener('scroll', scrollListener);
+    }
+  }, [])
+  
+
   return (
     <div className='page'>
+
+      <Header blackHeader={blackHeader}/>
 
       {featuredData &&
         <Featured item={featuredData} />
