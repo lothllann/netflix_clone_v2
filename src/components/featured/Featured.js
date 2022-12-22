@@ -29,8 +29,8 @@ const Featured = ({ item }) => {
                     </div>
                     <div className='featured--description'>{item.overview}</div>
                     <div className='featured--buttons'>
-                        <button>► Assistir</button>
-                        <button>+Minha lista</button>
+                        <button className='featured--watchButton'>► Assistir</button>
+                        <button className='featured--myListButton'>+Minha lista</button>
                     </div>
                     <div className='featured--genres'><strong>Generos:</strong> {generos.join(', ')}</div>
                 </div>

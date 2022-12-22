@@ -13,6 +13,10 @@
     width: inherit;
     height: inherit;
     background: linear-gradient(to right, #111 30%, transparent 70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
 }
 
 .featured--name {
@@ -43,4 +47,41 @@
     font-size: 20px;
     color: #999;
     max-width: 40%;
+}
+
+.featured--buttons {
+    margin-top: 15px;
+}
+
+.featured--watchButton,
+.featured--myListButton {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: all ease 0.2s;
+}
+
+.featured--watchButton{
+    background-color: #fff;
+    color: #000;
+}
+
+.featured--myListButton{
+    background-color: #333;
+     color: #fff;
+}
+
+.featured--watchButton:hover,
+.featured--myListButton:hover {
+    opacity: 0.7;
+}
+
+.featured--genres {
+    margin-top: 15px;
+    font-size: 18px  ;
+    color: #999;
 }
