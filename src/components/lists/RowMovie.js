@@ -7,6 +7,9 @@ const RowMovie = ({ title, items }) => {
     const imageHost = "https://image.tmdb.org/t/p/";
     const [scrollX, setScrollX] = React.useState(0)
 
+
+
+    
     const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2.5);
         if(x > 0) x = 0; 
