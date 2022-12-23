@@ -15,6 +15,8 @@ const App = () => {
   React.useEffect(() => {
     const loadAll = async () => {
 
+      
+
       //pegando a lista TOTAL
       let list = await api.getHomeList();
       setMovieList(list);
