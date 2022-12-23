@@ -9,6 +9,7 @@ const RowMovie = ({ title, items }) => {
     const [scrollX, setScrollX] = React.useState(0)
     const [movieList, setMovieList] = React.useState([]);
 
+
     const fetchMovies = async (_path) => {
         try {
             const data = await getMovies(_path);
