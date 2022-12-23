@@ -1,5 +1,7 @@
 .movieRow {
     margin-bottom: 30px;
+    padding-top: -250px;
+   
 }
 
 .movieRow h2 {
@@ -9,10 +11,14 @@
 .movieRow--listarea {
     overflow-x: hidden;
     padding-left: 30px;
+    
+    
 }
 
 .movieRow--list {
     transition: all ease 0.3s;
+    
+
 }
 
 .movieRow--item {
