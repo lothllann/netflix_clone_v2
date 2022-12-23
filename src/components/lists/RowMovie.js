@@ -20,6 +20,9 @@ const RowMovie = ({ title, items }) => {
         fetchMovies(items)
     }, [items]);
 
+
+
+    
     const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2.5);
         if (x > 0) x = 0;
