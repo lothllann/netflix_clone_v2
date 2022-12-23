@@ -15,7 +15,7 @@ const App = () => {
   React.useEffect(() => {
     const loadAll = async () => {
 
-      
+      //teste
 
       //pegando a lista TOTAL
       let list = await api.getHomeList();
