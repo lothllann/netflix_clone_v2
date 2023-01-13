@@ -8,35 +8,40 @@ const Featured = () => {
 
 
 
+
+    const chooseFeatured = async (_items) => {
+        try {
+            const data = await getMovies(filmes.find(
+                (i) => (i.slug === 'originals')
+            ).items);
+            const movies = data?.results;
+            const randomIndex = Math.floor(Math.random() * data.results.length);
+            const chosen = movies[randomIndex];
+            const chosenInfo = await getMovieInfo(chosen.id, 'tv')
+            setFeaturedData(chosenInfo);
+           
+        } catch (error) { console.log(error) }
+    }
+
     React.useEffect(() => {
-        const chooseFeatured = async () => {
-            try {
-                const data = await getMovies(filmes.find(
-                    (i) => (i.slug === 'originals')
-                ).items);
-                const movies = data?.results;
-                const randomIndex = Math.floor(Math.random() * data.results.length);
-                const chosen = movies[randomIndex];
-                const chosenInfo = await getMovieInfo(chosen.id, 'tv')
-                setFeaturedData(chosenInfo);
-                console.log(featuredData)
-            } catch (error) { console.log(error)}
-        }
         chooseFeatured();
     }, []);
 
 
-    let year = new Date(featuredData.first_air_date);
-    let generos = [];
+    const year = new Date(featuredData.first_air_date);
+    const generos = [];
 
     for (let i in featuredData.genres) {
         generos.push(featuredData.genres[i].name)
     }
 
-    let description = featuredData.overview;
-    if(description.length > 200){
-        description = description.substring(0, 200)+'...'
-    }
+
+
+    // function truncate(str) {
+    //     return str?.length > 50 ? str.subtr(0, 50) + '...' : str;
+    // }
+    // let description = truncate(featuredData?.overview);
+
 
     return (
         <section className='featured' style={{
@@ -46,13 +51,13 @@ const Featured = () => {
         }}>
             <div className='featured--vertical'>
                 <div className='featured--horizontal'>
-                    <div className='featured--name'>{featuredData.original_name}</div>
+                    <div className='featured--name'>{featuredData.name || featuredData.title || featuredData.original_name}</div>
                     <div className='featured--info'>
                         <div className='featured--points'>{featuredData.vote_average} pontos</div>
                         <div className='featured--year'>{year.getFullYear()}</div>
                         <div className='featured--seasons'>{featuredData.number_of_seasons} temporada{featuredData.number_of_seasons != 1 ? 's' : ''}</div>
                     </div>
-                    <div className='featured--description'>{description}</div>
+                    <div className='featured--description'>{featuredData?.overview}</div>
                     <div className='featured--buttons'>
                         <button className='featured--watchButton'>► Assistir</button>
                         <button className='featured--myListButton'>+Minha lista</button>
