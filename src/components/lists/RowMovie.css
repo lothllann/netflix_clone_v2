@@ -1,7 +1,7 @@
 .movieRow {
     margin-bottom: 30px;
     padding-top: -250px;
-   
+
 }
 
 .movieRow h2 {
@@ -11,13 +11,13 @@
 .movieRow--listarea {
     overflow-x: hidden;
     padding-left: 30px;
-    
-    
+
+
 }
 
 .movieRow--list {
     transition: all ease 0.3s;
-    
+
 
 }
 
@@ -43,7 +43,7 @@
     position: absolute;
     width: 40px;
     height: 225px;
-    background-color:rgba(14, 14, 14, 0.5);
+    background-color: rgba(14, 14, 14, 0.5);
     z-index: 99;
     display: flex;
     align-items: center;
@@ -67,8 +67,33 @@
     opacity: 1;
 }
 
+.container-trailer {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color:rgba(14, 14, 14, 0.5);
+    z-index: 9999999999;
+}
 
-@media (max-width: 760px){
+.modal-trailer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    border-radius: 8px;
+    width: 680px;
+    height: 500px;
+    background-color:#333;
+}
+
+
+@media (max-width: 760px) {
+
     .movieRow--left,
     .movieRow--right {
         opacity: 1;

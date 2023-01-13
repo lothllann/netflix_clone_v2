@@ -85,7 +85,16 @@ const RowMovie = ({ title, items }) => {
             </div>
             {trailerUrl &&
                 <div className='container-trailer'>
-                    <ReactPlayer className='modal-trailer' url={trailerUrl} playing={true} />
+                    <div className='modal-trailer'>
+                        <ReactPlayer
+                            url={trailerUrl}
+                            playing={true}
+                            controls={true}
+                            width={'680px'}
+                            height={'382px'}
+                        />
+                    </div>
+
                 </div>}
         </div>
     )
