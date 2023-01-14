@@ -15,7 +15,6 @@ const RowMovie = ({ title, items }) => {
 
     const handleClick = (movie) => {
         setMovieSelected(movie)
-        console.log(movie)
     }
 
 
@@ -74,7 +73,7 @@ const RowMovie = ({ title, items }) => {
                     ))}
                 </div>
             </div>
-            {/* <Trailer movie={movieSelected}/> */}
+            {movieSelected && <Trailer movie={movieSelected}/>}
         </div>
     )
 }
