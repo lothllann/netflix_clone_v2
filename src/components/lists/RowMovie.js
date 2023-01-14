@@ -2,34 +2,20 @@ import React from 'react'
 import './RowMovie.css'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import AddIcon from '@mui/icons-material/Add';
-import LikeIcon from '@mui/icons-material/ThumbUpOffAlt';
-import UnlikeIcon from '@mui/icons-material/ThumbDownOffAlt';
-import MoreIcon from '@mui/icons-material/ExpandMore';
+import Trailer from '../trailer/Trailer';
 import { getMovies } from '../../api';
-import ReactPlayer from 'react-player';
-import movieTrailer from 'movie-trailer';
+
 
 
 const RowMovie = ({ title, items }) => {
     const imageHost = "https://image.tmdb.org/t/p/";
     const [scrollX, setScrollX] = React.useState(0)
     const [movieList, setMovieList] = React.useState([]);
-    const [trailerUrl, setTrailerUrl] = React.useState('');
+    const [movieSelected, setMovieSelected] = React.useState('');
 
     const handleClick = (movie) => {
-        if (trailerUrl) {
-            setTrailerUrl('')
-        } else {
-            movieTrailer(movie?.title || movie?.name || movie?.original_name || '')
-                .then((url) => {
-                    setTrailerUrl(url)
-                })
-                .catch((error) => {
-                    console.log('Erro ao pegar o trailer do filme: ' + error)
-                });
-        }
+        setMovieSelected(movie)
+        console.log(movie)
     }
 
 
@@ -88,39 +74,7 @@ const RowMovie = ({ title, items }) => {
                     ))}
                 </div>
             </div>
-            {trailerUrl &&
-                <div className='container-trailer'>
-                    <div className='modal-trailer'>
-                        <ReactPlayer
-                            url={trailerUrl}
-                            playing={true}
-                            controls={true}
-                            width={'680px'}
-                            height={'382px'}
-                        />
-                        <div className='buttonsAndAbout'>
-                            <div className='buttons'>
-                                <div>
-                                    <PlayCircleIcon />
-                                    <AddIcon />
-                                    <div className='avaliation'>
-                                        <LikeIcon />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <MoreIcon />
-                                </div>
-                            </div>
-                            <div className='about'>
-                                <div className='votos'>{items.vote_average} 0.0 pontos</div>
-                                <div className='temporadas'> tempo </div>
-                                <div className='generos'><strong>Generos:</strong> drama, açao, aventura</div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>}
+            {/* <Trailer movie={movieSelected}/> */}
         </div>
     )
 }
