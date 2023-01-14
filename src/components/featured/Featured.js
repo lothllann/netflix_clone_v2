@@ -35,14 +35,6 @@ const Featured = () => {
         generos.push(featuredData.genres[i].name)
     }
 
-
-
-    // function truncate(str) {
-    //     return str?.length > 50 ? str.subtr(0, 50) + '...' : str;
-    // }
-    // let description = truncate(featuredData?.overview);
-
-
     return (
         <section className='featured' style={{
             backgroundSize: 'cover',

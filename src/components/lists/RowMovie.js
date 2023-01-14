@@ -2,6 +2,11 @@ import React from 'react'
 import './RowMovie.css'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import AddIcon from '@mui/icons-material/Add';
+import LikeIcon from '@mui/icons-material/ThumbUpOffAlt';
+import UnlikeIcon from '@mui/icons-material/ThumbDownOffAlt';
+import MoreIcon from '@mui/icons-material/ExpandMore';
 import { getMovies } from '../../api';
 import ReactPlayer from 'react-player';
 import movieTrailer from 'movie-trailer';
@@ -93,6 +98,26 @@ const RowMovie = ({ title, items }) => {
                             width={'680px'}
                             height={'382px'}
                         />
+                        <div className='buttonsAndAbout'>
+                            <div className='buttons'>
+                                <div>
+                                    <PlayCircleIcon />
+                                    <AddIcon />
+                                    <div className='avaliation'>
+                                        <LikeIcon />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <MoreIcon />
+                                </div>
+                            </div>
+                            <div className='about'>
+                                <div className='votos'>{items.vote_average} 0.0 pontos</div>
+                                <div className='temporadas'> tempo </div>
+                                <div className='generos'><strong>Generos:</strong> drama, açao, aventura</div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>}

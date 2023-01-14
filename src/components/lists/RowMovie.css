@@ -82,13 +82,38 @@
 
 .modal-trailer {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+   
     overflow: hidden;
     border-radius: 8px;
     width: 680px;
     height: 500px;
-    background-color:#333;
+    background-color:rgb(7, 7, 7);
+}
+
+.buttonsAndAbout {
+    padding: 15px 30px 5px 30px
+}
+
+.avaliation {
+    display: inline-block;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+
+.votos {
+    display: inline-block;
+    color: #46d369
+}
+
+.temporadas {
+    display: inline-block;
+    padding: 0 0px 10px 15px;
 }
 
 
