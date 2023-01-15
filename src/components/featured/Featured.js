@@ -6,7 +6,7 @@ const Featured = () => {
     const imageHost = "https://image.tmdb.org/t/p/original";
     const [featuredData, setFeaturedData] = React.useState({})
 
-
+  
 
 
     const chooseFeatured = async (_items) => {
@@ -45,7 +45,7 @@ const Featured = () => {
                 <div className='featured--horizontal'>
                     <div className='featured--name'>{featuredData.name || featuredData.title || featuredData.original_name}</div>
                     <div className='featured--info'>
-                        <div className='featured--points'>{featuredData.vote_average.toFixed(1)} pontos</div>
+                        <div className='featured--points'>{featuredData.vote_average} pontos</div>
                         <div className='featured--year'>{year.getFullYear()}</div>
                         <div className='featured--seasons'>{featuredData.number_of_seasons} temporada{featuredData.number_of_seasons != 1 ? 's' : ''}</div>
                     </div>

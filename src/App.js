@@ -19,7 +19,7 @@ const App = () => {
           return <RowMovie
             key={key}
             title={i.title}
-            items={i.items}
+            items={i.items}     
           />
         })}
       </section>
