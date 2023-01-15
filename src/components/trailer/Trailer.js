@@ -9,12 +9,16 @@ import ReactPlayer from 'react-player';
 import movieTrailer from 'movie-trailer';
 
 
-const Trailer = (movie) => {
+const Trailer = ({movie, setMovieSelected}) => {
   const [trailerUrl, setTrailerUrl] = React.useState('');
-  console.log(movie.movie.vote_average)
+  
+  
+  function handleOutsideClick(event) {
+    if (event.target === event.currentTarget) setMovieSelected(null);
+  }
 
   React.useEffect(() => {
-      movieTrailer(movie?.movie.title || movie?.movie.name || movie?.movie.original_name || '')
+      movieTrailer(movie?.title || movie?.name || movie?.original_name || '')
         .then((url) => {
           setTrailerUrl(url)
         })
@@ -23,9 +27,16 @@ const Trailer = (movie) => {
         });
   }, [])
 
+
+  const date = new Date(movie.release_date);
+  const yaer = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const votes = movie.vote_average.toFixed(1)
+
+  
   return (
-    <div className='container-trailer'>
-      <div className='modal-trailer'>
+    <div className='container-trailer' onClick={handleOutsideClick}>
+      <div className='modal-trailer' >
         <ReactPlayer
           url={trailerUrl}
           playing={true}
@@ -55,9 +66,9 @@ const Trailer = (movie) => {
             </div>
           </div>
           <div className='about'>
-            <div className='votos'>{movie.movie.vote_average} pontos</div>
-            <div className='releaseDate'> Data de Lançamento: {movie.movie.release_date} </div>
-            <div className='generos'><strong>Generos:</strong> drama, açao, aventura</div>
+            <div className='votos'>{votes} pontos</div>
+            <div className='releaseDate'> Data de Lançamento: {`${month}/${yaer}`} </div>
+            <div className='generos'><strong>{movie.title}</strong></div>
           </div>
         </div>
       </div>
@@ -65,4 +76,4 @@ const Trailer = (movie) => {
   )
 }
 
-export default Trailer
+export default Trailer;

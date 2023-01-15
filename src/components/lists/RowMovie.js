@@ -11,11 +11,14 @@ const RowMovie = ({ title, items }) => {
     const imageHost = "https://image.tmdb.org/t/p/";
     const [scrollX, setScrollX] = React.useState(0)
     const [movieList, setMovieList] = React.useState([]);
-    const [movieSelected, setMovieSelected] = React.useState('');
+    const [movieSelected, setMovieSelected] = React.useState(null)
+    
+    
 
     const handleClick = (movie) => {
         setMovieSelected(movie)
     }
+    
 
 
     const fetchMovies = async (_path) => {
@@ -46,6 +49,7 @@ const RowMovie = ({ title, items }) => {
         setScrollX(x);
     }
 
+
     return (
         <div className='movieRow'>
             <h2>{title}</h2>
@@ -73,7 +77,7 @@ const RowMovie = ({ title, items }) => {
                     ))}
                 </div>
             </div>
-            {movieSelected && <Trailer movie={movieSelected}/>}
+            {movieSelected && <Trailer movie={movieSelected} setMovieSelected={setMovieSelected} />}
         </div>
     )
 }
